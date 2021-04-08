@@ -32,8 +32,6 @@ async function run() {
 
     const token = installationTokens[0];
 
-    core.info('token: ' + token)
-
     core.setOutput('token', token);
   } catch (error) {
     core.setFailed(error.message);
