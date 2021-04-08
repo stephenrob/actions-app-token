@@ -1,18 +1,36 @@
 const core = require('@actions/core');
-const wait = require('./wait');
-
+const { App } = require("@octokit/app");
+const { Octokit } = require("@octokit/core");
 
 // most @actions toolkit packages have async methods
 async function run() {
   try {
-    const ms = core.getInput('milliseconds');
-    core.info(`Waiting ${ms} milliseconds ...`);
+    const appId = core.getInput('app_id');
+    const privateKey = core.getInput('private_key');
+    const baseUrl = core.getInput('base_url');
 
-    core.debug((new Date()).toTimeString()); // debug is only output if you set the secret `ACTIONS_RUNNER_DEBUG` to true
-    await wait(parseInt(ms));
-    core.info((new Date()).toTimeString());
+    
+    const app = new App({
+      appId: appId,
+      privateKey: privateKey,
+      Octokit: Octokit.defaults({
+        baseUrl: baseUrl,
+      }),
+    });
 
-    core.setOutput('time', new Date().toTimeString());
+    let installationTokens = []
+
+    for await (const { octokit, installation } of app.eachInstallation.iterator()) {
+      const resp = await octokit.auth({
+        type: 'installation',
+        installationId: installation.id
+      })
+      installationTokens.push(resp.token)
+    }
+
+    const token = installationTokens[0];
+
+    core.setOutput('token', token);
   } catch (error) {
     core.setFailed(error.message);
   }

@@ -1,13 +1,18 @@
-name: 'Wait'
-description: 'Wait a designated number of milliseconds'
+name: 'Actions App Token'
+description: 'Get a token for a specific app installation'
 inputs:
-  milliseconds:  # id of input
-    description: 'number of milliseconds to wait'
+  app_id:
     required: true
-    default: '1000'
+    description: 'GitHub App ID'
+  private_key:
+    required: true
+    description: 'Private key for the GitHub App'
+  base_url:
+    required: true
+    description: 'Base url for the GitHub Install'
 outputs:
-  time: # output will be available to future steps
-    description: 'The message to output'
+  token:
+    description: 'Github Token for App installation'
 runs:
   using: 'node12'
   main: 'dist/index.js'
