@@ -511,20 +511,19 @@
     chalk "^4.0.0"
 
 "@octokit/app@^11.3.1":
-  version "11.3.1"
-  resolved "https://registry.yarnpkg.com/@octokit/app/-/app-11.3.1.tgz#84eae1a7c557e73da49566a62e54f135e053ee69"
-  integrity sha512-Pw7Zqd6OfB8WVfrB+loj0dv48DFYVWT7Su+y8IjjtDlJu/cA70poUshxxz32es2nxESXB5SKqBoxo0PATQP2XA==
+  version "11.4.2"
+  resolved "https://registry.yarnpkg.com/@octokit/app/-/app-11.4.2.tgz#456181f5c5e62901441cef50b747ab33f6990fc1"
+  integrity sha512-SgnwLfAVKe69gpNysvx+fA/dPLp17ykbOjHy9rqE5N01c8zEM9csAWXk9jDR1ufLAUfi4aFp1nCqoVuM2/Q+cQ==
   dependencies:
-    "@octokit/auth-app" "^3.0.0"
+    "@octokit/auth-app" "^3.3.0"
     "@octokit/auth-unauthenticated" "^2.0.4"
     "@octokit/core" "^3.2.0"
     "@octokit/oauth-app" "^3.2.0"
     "@octokit/plugin-paginate-rest" "^2.6.0"
     "@octokit/types" "^6.0.3"
     "@octokit/webhooks" "^9.0.0-beta.3"
-    deprecation "^2.3.1"
 
-"@octokit/auth-app@^3.0.0":
+"@octokit/auth-app@^3.3.0":
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/@octokit/auth-app/-/auth-app-3.3.0.tgz#18957a9505936dcd38aeb70eca88ffc22e1cbf29"
   integrity sha512-89jfgpEc0P+7V3SjMiNfTMrAOYQcmZ5g0HbBql0Vd7U47QWxUdrORv003Dtcjpc96GMo7pGaGbVlEEkG+pPwEA==
